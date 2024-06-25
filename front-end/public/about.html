@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <script src="components/footer-component.js" defer></script>
+    <script src="components/header-component.js" defer></script>
+    <script src="components/card-component.js" defer></script>
+    <script src="components/card-container.js" defer></script>
+    <script src="components/breadcrumb-dates-component.js" defer></script>
+    <script src="../../back-end/admin.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Informatik'Mans - À propos</title>
+</head>
+
+<body>
+
+<header-component></header-component>
+
+<section id="about">
+    <h1>À propos de nous</h1>
+    <p>Bienvenue chez Informatik'Mans ! Nous sommes une équipe passionnée par l'informatique et les technologies de pointe. Notre mission est de fournir des solutions innovantes et adaptées aux besoins de nos clients.</p>
+
+    <h2>Notre Histoire</h2>
+    <p>Fondée en 2020, Informatik'Mans a rapidement évolué pour devenir un acteur clé dans le domaine de l'informatique. Avec une équipe de professionnels dévoués, nous avons réussi à offrir des services de qualité à nos clients tout en restant à la pointe de l'innovation technologique.</p>
+
+    <card-container
+            cardTitle="Notre Équipe"
+            imageUrl="img/accord.png"
+            layout="top"
+            imageSize="30%"
+            transformStyle="translateY(0%)"
+            backgroundColor="#f0f0f0"
+            textColor="#333"
+            linkUrl="https://example.com"
+            active
+            icon="img/icon.png"
+            borderRadius="10px"
+            boxShadow="0 8px 16px rgba(0, 0, 0, 0.2)"
+            imagePosition="top">
+
+        <card-component
+                name="Jean Dupont"
+                role="CEO"
+                description="Jean est le fondateur et CEO d'Informatik'Mans. Avec plus de 20 ans d'expérience dans l'industrie, il guide l'entreprise vers de nouveaux horizons."
+                image="img/jean.jpg">
+        </card-component>
+
+        <card-component
+                name="Marie Curie"
+                role="CTO"
+                description="Marie, notre CTO, est une experte en développement logiciel et en ingénierie. Elle supervise tous les aspects techniques de nos projets."
+                image="img/marie.jpg">
+        </card-component>
+
+        <card-component
+                name="Albert Einstein"
+                role="Lead Developer"
+                description="Albert est notre développeur principal. Son expertise en intelligence artificielle et en machine learning est inestimable pour nos projets."
+                image="img/albert.jpg">
+        </card-component>
+
+    </card-container>
+    <h2>Nos Valeurs</h2>
+    <ul>
+        <li><strong>Innovation:</strong> Nous nous efforçons de rester à la pointe des dernières technologies pour offrir les meilleures solutions.</li>
+        <li><strong>Qualité:</strong> Nous garantissons des produits et services de haute qualité pour satisfaire nos clients.</li>
+        <li><strong>Intégrité:</strong> Nous opérons avec honnêteté et transparence dans toutes nos actions.</li>
+        <li><strong>Client d'abord:</strong> Nous plaçons les besoins de nos clients au centre de toutes nos décisions.</li>
+    </ul>
+</section>
+
+<footer-component></footer-component>
+
+</body>
+</html>
+
+<style>
+    @import 'variables.css';
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: var(--secondary-color);
+        color: var(--text-color);
+    }
+
+    header-component, footer-component {
+        display: block;
+        width: 100%;
+    }
+
+    section#about {
+        padding: 2rem;
+        background: #fff;
+        margin: 2rem auto;
+        max-width: 1200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section#about h1, section#about h2 {
+        text-align: center;
+        color: var(--primary-color);
+    }
+
+    section#about p, section#about ul {
+        text-align: justify;
+        margin: 1rem 0;
+    }
+
+    section#about ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    section#about ul li {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    section#about ul li:before {
+        content: "•";
+        color: var(--color-button);
+        position: absolute;
+        left: 0;
+    }
+
+    card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    card-container .card {
+        display: flex;
+        flex-direction: column;
+        background: var(--secondary-color);
+        color: var(--text-color);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    card-container .card.active {
+        border: 2px solid var(--color-button-hover);
+    }
+
+    card-container .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    card-container .card-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1rem;
+    }
+
+    card-container .card-content.horizontal {
+        flex-direction: row;
+    }
+
+    card-container .card-content.vertical {
+        flex-direction: column;
+    }
+
+    card-container .card-composant {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    card-container .card-img {
+        object-fit: cover;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+
+    card-container .card-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    card-container button {
+        padding: 0.8em;
+        margin-top: 1em;
+        border: none;
+        border-radius: 1rem;
+        background-color: var(--button-color);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    card-container button:hover {
+        background-color: var(--button-hover-color);
+    }
+
+    @media (max-width: 768px) {
+        card-container {
+            flex-direction: column;
+        }
+
+        card-container .card-content.horizontal {
+            flex-direction: column;
+        }
+
+        card-container .card-img {
+            width: 100%;
+            height: auto;
+        }
+
+        card-container .card {
+            width: 100%;
+            transform: translateY(0%);
+        }
+    }
+
+    @media (max-width: 480px) {
+        card-container .card {
+            transform: translateY(0%);
+        }
+    }
+</style>

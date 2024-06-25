@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Informatik'Mans - Aider les particuliers à se familiariser avec l'informatique">
+    <meta name="keywords" content="informatique, aide, association, technologie">
+    <meta name="author" content="Informatik'Mans">
+    <title>Informatik'Mans</title>
+    <script src="components/footer-component.js" async></script>
+    <script src="components/header-component.js" async></script>
+    <script src="components/card-component.js" async></script>
+    <script src="components/card-container.js" async></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header-component role="banner"></header-component>
+<main role="main">
+    <section class="composant">
+        <div class="image-wrapper">
+            <img src="img/DALL·E-2024-05-15-14.46.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
+            <article class="article-overlay">
+                <div class="article-content">
+                    <h1>Informatik<span class="highlight">'Mans</span></h1>
+                    <p>L'objectif de notre association est d'aider les particuliers à se familiariser avec l'informatique. Nous savons que pour beaucoup de personnes, la technologie peut être intimidante et difficile à comprendre. Nous sommes là pour les aider à ouvrir de nouvelles portes et à enrichir leur vie de nombreuses façons.</p>
+                    <a href="services.html">
+                        <button>En savoir plus</button>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section>
+        <div class="composantAutre">
+            <card-component cardTitle="Aide aux particuliers"
+                            cardDescription="L'informatique est devenue une part importante de notre quotidien, mais heureusement, de nombreux services d'aide aux particuliers sont disponibles pour offrir une assistance personnalisée."
+                            imageUrl="img/aidez-moi.png"
+                            backgroundColor="var(--primary-color)"
+                            transformStyle="translateY(-30%)"
+                            isClickable="true"
+                            href="about.html">
+            </card-component>
+            <card-component cardTitle="Un service gratuit"
+                            cardDescription="Les services d'aide informatique personnalisée permettent une inclusion technologique à tous les âges. Il est possible de bénéficier de ces services d'aide informatique personnalisée gratuitement."
+                            imageUrl="img/livraison-gratuite.png"
+                            backgroundColor="var(--primary-color)"
+                            transformStyle="translateY(-30%)"
+                            isClickable="true"
+                            href="services.html">
+            </card-component>
+            <card-component cardTitle="Apprentissage"
+                            cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
+                            imageUrl="img/education.png"
+                            backgroundColor="var(--primary-color)"
+                            transformStyle="translateY(-30%)"
+                            isClickable="true"
+                            href="services.html">
+            </card-component>
+        </div>
+        <div class="composant-2">
+            <h1 class="h1">Qui sommes-nous ?</h1>
+            <div class="composant-2-2">
+                <img src="img/appel-video.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
+                <div class="divAbout">
+                    <p>Notre association a été créée en 2023 par un groupe de passionnés d'informatique. Nous avons tous une expérience significative dans le domaine de l'informatique et nous sommes convaincus que la technologie peut être un outil puissant pour améliorer la vie des gens.</p>
+                    <a href="about.html">
+                        <button>En savoir plus</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="image-wrapper2">
+            <img src="img/DALLE-2024-04-19-14.21.png" alt="Image de présentation des statistiques de l'association" class="image-composant2">
+            <article class="article-overlay2">
+                <div class="icon-container">
+                    <div class="icon-item">
+                        <img src="img/accord.png" alt="Icône des partenaires">
+                        <h2>3</h2>
+                        <h4>Partenaires</h4>
+                    </div>
+                    <div class="icon-item">
+                        <img src="img/travail-en-equipe.png" alt="Icône de l'équipe">
+                        <h2>4</h2>
+                        <h4>Personnes dans l'équipe</h4>
+                    </div>
+                    <div class="icon-item">
+                        <img src="img/humanitaire.png" alt="Icône des personnes aidées">
+                        <h2>20+</h2>
+                        <h4>Personnes aidées</h4>
+                    </div>
+                    <div class="icon-item">
+                        <img src="img/calendrier.png" alt="Icône des années d'expérience">
+                        <h2>2+</h2>
+                        <h4>D'années d'expérience</h4>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="section">
+        <card-container imageSize="30%"
+                        transformStyle="translateY(-20%)"
+                        cardTitle="Partenaires"
+                        imageUrl="img/accord.png"
+                        layout="top"
+                        active>
+        <div class="composant-flex">
+            <div class="composant">
+            <card-component cardTitle="Express Transport Anjou"
+                            cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
+                            imageUrl="img/express.png"
+                            backgroundColor="var(--third-color)"
+                            transformStyle="translateY(0)"
+                            borderColor="var(--color-vert)"
+                            borderWidth="2px"
+                            textColor="var(--primary-vert)"></card-component>
+        </div>
+        <div class="composant">
+            <card-component cardTitle="Microsoft"
+                            cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
+                            imageUrl="img/Microsoft.png"
+                            backgroundColor="var(--third-color)"
+                            transformStyle="translateY(0)"
+                            borderColor="var(--color-vert)"
+                            borderWidth="2px"
+                            textColor="var(--primary-color)"></card-component>
+        </div>
+        <div class="composant">
+            <card-component cardTitle="Le Mans Métropole"
+                            cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
+                            imageUrl="img/le-mans.jpg"
+                            backgroundColor="var(--third-color)"
+                            transformStyle="translateY(0)"
+                            borderColor="var(--color-vert)"
+                            borderWidth="2px"
+                            textColor="var(--primary-color)"></card-component>
+        </div>
+        </div>
+        </card-container>
+    </section>
+
+</main>
+<footer-component role="contentinfo"></footer-component>
+</body>
+</html>
+
+
+<style>
+    /* style.css */
+    @import 'variables.css';
+
+    main {
+        flex: 1;
+    }
+
+    .composant, .composantAutre, .composant-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: var(--secondary-color);
+    }
+
+    .composant-flex {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        background-color: var(--secondary-color);
+    }
+    .composant {
+        height: auto;
+    }
+
+    .composantAutre {
+        height: 30vh;
+    }
+
+    .composant-2 {
+        flex-direction: column;
+    }
+
+    .composant-2 h1 {
+        margin-top: 0;
+    }
+
+    .icon-container {
+        display: flex;
+        justify-content: space-evenly;
+        width: 80%;
+        height: 25%;
+        color: white;
+        margin-top: 5rem;
+    }
+
+    .icon-item {
+        text-align: center;
+    }
+
+    .icon-item img {
+        width: 75px;
+        height: auto;
+    }
+
+    .icon-item h3 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .image, .image-composant2 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .image {
+        height: 70vh;
+    }
+
+    .image-composant {
+        width: 25%;
+        height: 25%;
+        border-radius: var(--border-radius);
+    }
+
+    .image-composant2 {
+        height: 40vh;
+    }
+
+    .image-wrapper, .image-wrapper2{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        justify-content: center;
+    }
+
+    .image-wrapper2 {
+        height: 40vh;
+    }
+
+    .image-wrapper{
+        height: 70vh;
+    }
+    .article-overlay, .article-overlay2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgba(39, 65, 91, 0.55);
+    }
+    .article-overlay
+    {
+        overflow: hidden; /* Ensure the overlay content does not overflow */
+        align-items: center;
+    }
+
+    .article-overlay2 {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .article-content {
+        color: white;
+        text-align: center;
+        max-width: 80%;
+        padding: 20px;
+    }
+
+    .highlight {
+        color: var(--color-button);
+    }
+
+    .composant-2-2 {
+        max-width: 100%;
+        padding-bottom: 4rem;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+    }
+
+    .h1 {
+        color: var(--primary-color);
+    }
+
+    .divAbout {
+        width: 40%;
+        padding: 5rem;
+        text-align: left;
+    }
+
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Media queries pour les petits écrans */
+    @media (max-width: 768px) {
+        .composant, .composantAutre {
+            flex-direction: column;
+        }
+
+        .composantAutre {
+            height: auto;
+        }
+
+        .composant-2-2 {
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .divAbout {
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .icon-container {
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        .icon-item {
+            margin-bottom: 1rem;
+        }
+
+        .image-wrapper, .image {
+            height: auto;
+        }
+
+        .article-overlay, .article-overlay2 {
+            padding: 1rem;
+            flex-direction: column;
+        }
+
+        .article-content {
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .composant h1 {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .icon-container {
+            width: 100%;
+            align-items: center;
+        }
+
+        .icon-item img {
+            width: 50px;
+        }
+
+        .icon-item h2 {
+            font-size: 1.5rem;
+        }
+
+        .icon-item h4 {
+            font-size: 1rem;
+        }
+
+        .composant h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>

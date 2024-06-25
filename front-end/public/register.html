@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="register-container">
+    <h2>Inscription</h2>
+    <form id="register-form">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+    <div id="message" class="message"></div>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .register-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    input {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #5cb85c;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #4cae4c;
+    }
+
+    .message {
+        margin-top: 10px;
+        color: red;
+        font-size: 14px;
+    }
+
+</style>
+
+<script>
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        fetch('http://localhost:3001/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+            .then(response => response.json())
+            .then(data => {
+                const messageDiv = document.getElementById('message');
+                if (data.message) {
+                    messageDiv.textContent = 'Inscription réussie. Redirection vers la page de connexion...';
+                    messageDiv.style.color = 'green';
+                    setTimeout(() => {
+                        window.location.href = 'login.html'; // Changez cette URL selon vos besoins
+                    }, 2000);
+                } else {
+                    messageDiv.textContent = data.error || 'Erreur lors de l\'inscription.';
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                const messageDiv = document.getElementById('message');
+                messageDiv.textContent = 'Erreur d\'inscription. Veuillez réessayer plus tard.';
+            });
+    });
+</script>

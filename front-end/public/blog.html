@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <script src="components/footer-component.js" defer></script>
+    <script src="components/header-component.js" defer></script>
+    <script src="components/card-component.js" defer></script>
+    <script src="components/card-container.js" defer></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Informatik'Mans - Blog</title>
+</head>
+<body>
+<header-component></header-component>
+<section id="blog">
+    <h1>Blog</h1>
+    <div id="post-list" class="card-container">
+        <!-- Les articles de blog seront ajoutés ici via JavaScript -->
+    </div>
+</section>
+<footer-component></footer-component>
+
+<script>
+    // Fonction pour charger les articles de blog
+    function loadPosts() {
+        fetch('http://127.0.0.1:3001/posts')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(posts => {
+                const postList = document.getElementById('post-list');
+                postList.innerHTML = ''; // Clear any existing posts
+                posts.forEach(post => {
+                    const postItem = document.createElement('div');
+                    postItem.className = 'card';
+
+                    postItem.innerHTML = `
+                        <img src="${post.imageUrl}" alt="">
+                        <div class="card-content">
+                            <h3>${post.title}</h3>
+                            <p>${post.content}</p>
+                        </div>
+                    `;
+                    postList.appendChild(postItem);
+                });
+            })
+            .catch(error => console.error('Erreur:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPosts);
+</script>
+</body>
+</html>
+
+
+<style>
+    :root {
+        --primary-color: #27415B;
+        --text-color: #333;
+        --secondary-color: #E9E9E9;
+        --third-color: #F4F4F4;
+        --secondary-color-dark: #1C1C1C;
+        --transition-duration: 0.3s;
+        --border-radius: 1rem;
+        --font-family: 'Dejavu Sans', sans-serif;
+        --color-button: #D19E3F;
+        --color-button-hover: #E0B95D;
+        --h1-font-size: 2.5rem;
+        --h2-font-size: 2rem;
+        --h3-font-size: 1.5rem;
+        --color-vert: #0E6333;
+    }
+
+    body {
+        font-family: var(--font-family);
+        background: var(--secondary-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+    }
+
+    header-component, footer-component {
+        display: block;
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    section#blog {
+        padding: 2rem;
+        background: #fff;
+        margin: 2rem auto;
+        max-width: 1200px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section#blog h1 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: var(--h1-font-size);
+        margin-bottom: 1rem;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .card {
+        background: #fff;
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 300px;
+        width: 100%;
+        transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        padding: 1rem;
+    }
+
+    .card h3 {
+        margin: 1rem 0 0.5rem;
+        color: var(--primary-color);
+        font-size: var(--h3-font-size);
+    }
+
+    .card p {
+        margin: 0.5rem 0;
+        color: var(--text-color);
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    @media (max-width: 768px) {
+        .card-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .card {
+            width: 100%;
+        }
+    }
+
+    section#blog a {
+        display: inline-block;
+        text-align: center;
+        margin: 1rem 0;
+        padding: 0.75rem 1.5rem;
+        background: var(--color-button);
+        color: #fff;
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        transition: background-color var(--transition-duration);
+    }
+
+    section#blog a:hover {
+        background: var(--color-button-hover);
+    }
+
+</style>

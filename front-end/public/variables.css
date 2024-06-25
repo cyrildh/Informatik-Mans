@@ -1,0 +1,17 @@
+
+:root {
+    --primary-color: #27415B;
+    --text-color:#fff;
+    --secondary-color: #E9E9E9;
+    --third-color: #F4F4F4;
+    --secondary-color-dark: #1C1C1C;
+    --transition-duration: 0.3s;
+    --border-radius: 1rem;
+    --font-family: 'Dejavu Sans';
+    --color-button: #D19E3F;
+    --color-button-hover: #E0B95D;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --color-vert: #0E6333;
+}
