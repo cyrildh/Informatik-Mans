@@ -62,6 +62,10 @@ class CardComponent extends HTMLElement {
         ` : '';
 
         this.shadowRoot.innerHTML = `
+            <head>
+                <title>Informatik'Mans</title>
+                <link rel="stylesheet" href="style.css">
+            </head>
             <a ${href}>
                 <div class="card">
                     <img src="${this.getAttribute('imageUrl')}" alt="${this.getAttribute('cardTitle')}" class="card-img">
@@ -74,15 +78,16 @@ class CardComponent extends HTMLElement {
             </a>
             <style>
                 @import '../variables.css';
+               
                 .card {
                     border-radius: 1rem;
                     display: inline-block;
                     position: relative;
                     width: 300px;
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    padding: 20px;
+                    padding: 1.5rem;
                     text-align: center;
-                    height: 350px;
+                    height: 27rem;
                     margin: 1rem;
                     background-color: ${backgroundColor};
                     border: ${borderWidth} solid ${borderColor};
@@ -98,6 +103,9 @@ class CardComponent extends HTMLElement {
                 .card-content {
                     padding: 1rem;
                     text-align: center;
+                }
+                .card-content h3 {
+                    margin-bottom: 3rem; /* Ajustez selon vos besoins */
                 }
                 .card-arrow {
                     position: absolute;

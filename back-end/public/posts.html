@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Posts</title>
+    <style>
+        :root {
+            --primary-color: #27415B;
+            --text-color: #fff;
+            --secondary-color: #E9E9E9;
+            --third-color: #F4F4F4;
+            --secondary-color-dark: #1C1C1C;
+            --transition-duration: 0.3s;
+            --border-radius: 1rem;
+            --font-family: 'Dejavu Sans', sans-serif;
+            --color-button: #D19E3F;
+            --color-button-hover: #E0B95D;
+            --h1-font-size: 2.5rem;
+            --h2-font-size: 2rem;
+            --h3-font-size: 1.5rem;
+            --color-vert: #0E6333;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .btnred {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-duration);
+        }
+
+        .btnred:hover {
+            background-color: #ff6666;
+        }
+
+        h1 {
+            font-size: var(--h1-font-size);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: var(--h3-font-size);
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        p {
+            color: var(--primary-color);
+        }
+
+        form {
+            background-color: var(--third-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color-dark);
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 80%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--secondary-color-dark);
+            border-radius: var(--border-radius);
+            transition: border-color var(--transition-duration);
+            color: var(--secondary-color-dark);
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: var(--color-vert);
+            outline: none;
+        }
+
+        button {
+            background-color: var(--color-button);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-duration);
+        }
+
+        button:hover {
+            background-color: var(--color-button-hover);
+        }
+
+        .card {
+            background-color: var(--third-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33% - 2rem);
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card img {
+            width: 50%;
+            border-radius: var(--border-radius);
+            height: auto; /* Ensure images maintain aspect ratio */
+        }
+
+        .card-content {
+            padding: 1rem 0;
+        }
+
+        .modal {
+            display: none; /* Rendre le modal invisible par défaut */
+            position: fixed; /* Positionner de manière fixe */
+            z-index: 1; /* S'assurer que le modal apparaît au-dessus d'autres éléments */
+            left: 0; /* Positionner au bord gauche */
+            top: 0; /* Positionner en haut */
+            width: 100%; /* Prendre toute la largeur de l'écran */
+            height: 100%; /* Prendre toute la hauteur de l'écran */
+            overflow: hidden; /* Empêcher le débordement */
+            background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond semi-transparente */
+            align-items: center; /* Centrer verticalement */
+            justify-content: center; /* Centrer horizontalement */
+        }
+
+        .modal-content {
+            overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
+            max-height: 90vh; /* Limiter la hauteur maximale à 90% de la hauteur de l'écran */
+            padding: 20px; /* Ajouter des espaces internes */
+            width: 80%; /* Prendre 80% de la largeur de l'écran */
+            max-width: 600px; /* Largeur maximale de 600px */
+            background-color: var(--third-color); /* Couleur de fond */
+            border-radius: var(--border-radius); /* Bords arrondis */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+            display: flex; /* Utiliser flexbox pour le contenu interne */
+            flex-direction: column; /* Disposer les enfants en colonne */
+            align-items: center; /* Centrer les éléments enfants */
+        }
+
+        .close-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .close {
+            color: var(--secondary-color-dark);
+            font-size: 28px;
+            font-weight: bold;
+            transition: color var(--transition-duration);
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--color-vert);
+            text-decoration: none;
+        }
+
+        #add-post-form, #edit-post-form {
+            width: 40%; /* Assure que le formulaire ne dépasse pas le contenu modal */
+            max-width: 40%; /* Empêche le formulaire de dépasser la largeur du modal-content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideIn {
+            from {transform: translateY(-50px);}
+            to {transform: translateY(0);}
+        }
+
+        #articles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --h1-font-size: 2rem;
+                --h2-font-size: 1.5rem;
+                --h3-font-size: 1.25rem;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            .card {
+                flex: 1 1 100%;
+                margin: 0.5rem;
+            }
+
+            .card img {
+                width: 75%;
+            }
+            .modal-content {
+                width: 90%;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --h1-font-size: 1.75rem;
+                --h2-font-size: 1.25rem;
+                --h3-font-size: 1rem;
+            }
+
+            .btnred,
+            button {
+                padding: 0.5rem 1rem;
+            }
+
+            form {
+                padding: 0.5rem;
+            }
+
+            .card img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Manage Posts</h1>
+<form id="add-post-form" class="modal-content">
+    <input type="text" id="title" name="title" placeholder="Title" required>
+    <textarea id="content" name="content" placeholder="Content" required></textarea>
+    <input type="file" id="image" name="image">
+    <button type="submit">Add Post</button>
+</form>
+
+<div id="articles"></div>
+
+<!-- Edit Modal -->
+<div id="edit-modal" class="modal">
+    <form id="edit-post-form" class="modal-content">
+        <div class="close-container">
+            <span class="close">&times;</span>
+        </div>
+        <input type="hidden" id="edit-id" name="id">
+        <input type="text" id="edit-title" name="title" placeholder="Title" required>
+        <textarea id="edit-content" name="content" placeholder="Content" required></textarea>
+        <input type="file" id="edit-image" name="image">
+        <button type="submit">Edit Post</button>
+    </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let isAuthenticated = false;
+        fetch('/check-auth', {
+            credentials: 'include'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                isAuthenticated = data.authenticated;
+                if (isAuthenticated) {
+                    loadPosts();
+                } else {
+                    alert('Vous devez être connecté pour gérer les articles.');
+                    window.location.href = '/login'; // Rediriger vers la page de connexion
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+
+        document.getElementById('add-post-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const image = document.getElementById('image').files[0];
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('content', content);
+            if (image) {
+                formData.append('image', image);
+            }
+
+            fetch('/api/posts', {
+                method: 'POST',
+                credentials: 'include',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert('Post ajouté avec succès!');
+                        document.getElementById('add-post-form').reset();
+                        loadPosts();
+                    } else {
+                        alert('Échec de l\'ajout du post');
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+        });
+
+        function loadPosts() {
+            fetch('/api/posts')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(posts => {
+                    const articlesContainer = document.getElementById('articles');
+                    articlesContainer.innerHTML = ''; // Clear any existing content
+                    posts.forEach(post => {
+                        const postItem = document.createElement('div');
+                        postItem.className = 'card';
+                        postItem.innerHTML = `
+                            <img src="${post.imageUrl}" alt="${post.title}">
+                            <div class="card-content">
+                                <h3>${post.title}</h3>
+                                <p>${post.content}</p>
+                                <button class="edit-btn" data-id="${post._id}">Modifier</button>
+                                <button class="btnred delete-btn" data-id="${post._id}">Supprimer</button>
+                            </div>
+                        `;
+                        articlesContainer.appendChild(postItem);
+                    });
+                    addEventListeners();
+                })
+                .catch(error => console.error('Erreur:', error));
+        }
+
+        function addEventListeners() {
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    editPost(button.dataset.id);
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    deletePost(button.dataset.id);
+                });
+            });
+        }
+
+        window.editPost = function(postId) {
+            fetch(`/api/posts/${postId}`)
+                .then(response => response.json())
+                .then(post => {
+                    document.getElementById('edit-id').value = post._id;
+                    document.getElementById('edit-title').value = post.title;
+                    document.getElementById('edit-content').value = post.content;
+                    document.getElementById('edit-modal').style.display = 'flex'; // Display modal
+                })
+                .catch(error => console.error('Erreur:', error));
+        }
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('edit-modal').style.display = 'none';
+        });
+
+        document.getElementById('edit-post-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('edit-id').value;
+            const title = document.getElementById('edit-title').value;
+            const content = document.getElementById('edit-content').value;
+            const image = document.getElementById('edit-image').files[0];
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('content', content);
+            if (image) {
+                formData.append('image', image);
+            }
+
+            fetch(`/api/posts/${id}`, {
+                method: 'PUT',
+                credentials: 'include',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert('Post modifié avec succès!');
+                        document.getElementById('edit-modal').style.display = 'none';
+                        loadPosts();
+                    } else {
+                        alert('Échec de la modification du post');
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+        });
+
+        window.deletePost = function(postId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce post?')) {
+                fetch(`/api/posts/${postId}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            alert('Post supprimé avec succès!');
+                            loadPosts();
+                        } else {
+                            alert('Échec de la suppression du post');
+                        }
+                    })
+                    .catch(error => console.error('Erreur:', error));
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('edit-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    });
+</script>
+</body>
+</html>

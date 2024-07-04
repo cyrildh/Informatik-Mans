@@ -5,7 +5,12 @@ class CardContainer extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['cardTitle', 'cardDescription', 'imageUrl', 'mode', 'layout', 'imageSize', 'transformStyle', 'backgroundColor', 'textColor', 'hoverAnimation', 'linkUrl', 'active', 'buttonText', 'buttonAction', 'icon', 'borderRadius', 'boxShadow', 'imagePosition'];
+        return [
+            'cardTitle', 'cardDescription', 'imageUrl', 'mode', 'layout',
+            'imageSize', 'transformStyle', 'backgroundColor', 'textColor',
+            'hoverAnimation', 'linkUrl', 'active', 'buttonText', 'buttonAction',
+            'icon', 'borderRadius', 'boxShadow', 'imagePosition'
+        ];
     }
 
     get cardTitle() {
@@ -81,7 +86,9 @@ class CardContainer extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        this.render();
+        if (oldValue !== newValue) {
+            this.render();
+        }
     }
 
     connectedCallback() {
@@ -99,12 +106,12 @@ class CardContainer extends HTMLElement {
         const transformStyle = this.transformStyle;
         const linkWrapperStart = this.linkUrl ? `<a href="${this.linkUrl}" class="card-link">` : '';
         const linkWrapperEnd = this.linkUrl ? '</a>' : '';
-        const buttonHTML = this.buttonText ? `<button onclick="${this.buttonAction}">${this.buttonText}</button>` : '';
+        const buttonHTML = this.buttonText ? `<button>${this.buttonText}</button>` : '';
         const iconHTML = this.icon ? `<img src="${this.icon}" alt="Icon" class="card-icon">` : '';
 
         this.shadowRoot.innerHTML = `
         ${linkWrapperStart}
-        <div class="card ${this.active ? 'active' : ''}" style="border-radius: ${this.borderRadius}; box-shadow: ${this.boxShadow};">
+        <div class="card ${this.active ? 'active' : ''}" style="border-radius: ${this.borderRadius}; box-shadow: ${this.boxShadow}; background: ${this.backgroundColor}; color: ${this.textColor}; transform: ${transformStyle}; margin-bottom: 0;">
             <div class="card-content ${isHorizontal ? 'horizontal' : 'vertical'}">
                 ${this.imagePosition === 'top' || this.imagePosition === 'left' ? `
                 <div class="card-composant">
@@ -128,16 +135,13 @@ class CardContainer extends HTMLElement {
         </div>
         ${linkWrapperEnd}
         <style>
-        @import '../public/variables.css';
-        @import '../public/style.css';
-
         :host {
             display: block;
             position: relative;
-            margin: 2rem auto;
+            margin: 0 auto;
             width: 90%;
             max-width: 1200px;
-            padding: 1rem;
+            padding: 0;
             box-sizing: border-box;
         }
 
@@ -145,12 +149,9 @@ class CardContainer extends HTMLElement {
             display: flex;
             flex-direction: column;
             width: 100%;
-            background: ${this.backgroundColor};
-            color: ${this.textColor};
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
             height: 100%;
-            transform: ${transformStyle};
         }
 
         .card.active {
@@ -219,11 +220,16 @@ class CardContainer extends HTMLElement {
             background-color: var(--color-button-hover);
         }
 
+        @media (max-width: 1024px) {
+            :host {
+                width: 95%;
+            }
+        }
+
         @media (max-width: 768px) {
             :host {
-                margin: 1rem;
-                width: auto;
-                padding: 0.5rem;
+                width: 100%;
+                margin: 0.5rem auto;
             }
 
             .card-content.horizontal {
@@ -236,7 +242,6 @@ class CardContainer extends HTMLElement {
             }
 
             .card {
-                width: 100%;
                 transform: translateY(0%);
             }
         }
@@ -244,10 +249,16 @@ class CardContainer extends HTMLElement {
         @media (max-width: 480px) {
             .card {
                 transform: translateY(0%);
+                width: 99%;
             }
+            .
         }
         </style>
         `;
+
+        if (this.buttonText) {
+            this.shadowRoot.querySelector('button').addEventListener('click', this.handleButtonClick.bind(this));
+        }
     }
 }
 

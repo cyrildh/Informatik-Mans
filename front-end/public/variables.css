@@ -14,4 +14,12 @@
     --h2-font-size: 2rem;
     --h3-font-size: 1.5rem;
     --color-vert: #0E6333;
+    --h1-font-size-tablet: 2.5rem;
+    --h2-font-size-tablet: 2rem;
+    --h3-font-size-tablet: 1.75rem;
+
+    /* Tailles de police pour mobiles */
+    --h1-font-size-mobile: 2rem;
+    --h2-font-size-mobile: 1.4rem;
+    --h3-font-size-mobile: 1.10rem;
 }

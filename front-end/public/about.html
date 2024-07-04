@@ -1,240 +1,477 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <script src="components/footer-component.js" defer></script>
-    <script src="components/header-component.js" defer></script>
-    <script src="components/card-component.js" defer></script>
-    <script src="components/card-container.js" defer></script>
-    <script src="components/breadcrumb-dates-component.js" defer></script>
-    <script src="../../back-end/admin.js"></script>
-    <link rel="stylesheet" href="style.css">
 
-    <title>Informatik'Mans - À propos</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Informatik'Mans - Aider les particuliers à se familiariser avec l'informatique">
+    <meta name="keywords" content="informatique, aide, association, technologie">
+    <meta name="author" content="Informatik'Mans">
+    <title>À Propos</title>
+    <script src="components/footer-component.js" async></script>
+    <script src="components/header-component.js" async></script>
+    <script src="components/card-component.js" async></script>
+    <script src="components/card-container.js" async></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<header-component role="banner"></header-component>
+<main role="main">
+    <section class="composant">
+        <div class="image-wrapper">
+            <img src="img/DALL·E-2024-07-02-13.50.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
+            <article class="article-overlay">
+                <div class="article-content">
+                    <h1>À <span class="highlight">Propos</span></h1>
+                    <h3>L'objectif de notre association est d'aider les particuliers à se familiariser avec l'informatique. Nous savons que pour beaucoup de personnes, la technologie peut être intimidante et difficile à comprendre. Nous sommes là pour les aider à ouvrir de nouvelles portes et à enrichir leur vie de nombreuses façons.</h3>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="section-container">
+        <card-container imageSize="30%" transformStyle="translateY(0%)" cardTitle="L'équipe" imageUrl="img/accord.png" layout="top" active>
+            <div class="composant-flex">
+                <div class="composant">
+                    <card-component cardTitle="Caty BARBERINI" cardDescription="Chargée de développement web Trouve satisfaction à aider les autres dans une ambiance joyeuse et conviviale. Caty.barberini@informatikmans.org" imageUrl="img/express.png" backgroundColor="var(--third-color)" transformStyle="translateY(0)" borderColor="var(--color-vert)" borderWidth="2px" textColor="var(--primary-vert)"></card-component>
+                </div>
+                <div class="composant">
+                    <card-component cardTitle="Owen MENCHERO" cardDescription="Chargé de développement web Passionné par l'informatique et le développement en général. Owen.menchero@informatikmans.org" imageUrl="img/Microsoft.png" backgroundColor="var(--third-color)" transformStyle="translateY(0)" borderColor="var(--color-vert)" borderWidth="2px" textColor="var(--primary-color)"></card-component>
+                </div>
+                <div class="composant">
+                    <card-component cardTitle="Miguel BARBERINI" cardDescription="Co-président Responsable de la coordination des projets et événements. Miguel.barberini@informatikmans.org" imageUrl="img/le-mans.jpg" backgroundColor="var(--third-color)" transformStyle="translateY(0)" borderColor="var(--color-vert)" borderWidth="2px" textColor="var(--primary-color)"></card-component>
+                </div>
+            </div>
+        </card-container>
+    </section>
+    <section class="composant-2">
+        <h1 class="h1">Notre histoire</h1>
+        <div class="composant-2-2">
+            <img src="img/rapport.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
+            <div class="divAbout">
+                <p>Notre association a été créée en 2023 par un groupe de passionnés d'informatique. Nous avons tous une expérience significative dans le domaine de l'informatique et nous sommes convaincus que la technologie peut être un outil puissant pour améliorer la vie des gens.</p>
+                <button href="about.html" class="btn">En savoir plus</button>
+            </div>
+        </div>
+    </section>
 
-<header-component></header-component>
-
-<section id="about">
-    <h1>À propos de nous</h1>
-    <p>Bienvenue chez Informatik'Mans ! Nous sommes une équipe passionnée par l'informatique et les technologies de pointe. Notre mission est de fournir des solutions innovantes et adaptées aux besoins de nos clients.</p>
-
-    <h2>Notre Histoire</h2>
-    <p>Fondée en 2020, Informatik'Mans a rapidement évolué pour devenir un acteur clé dans le domaine de l'informatique. Avec une équipe de professionnels dévoués, nous avons réussi à offrir des services de qualité à nos clients tout en restant à la pointe de l'innovation technologique.</p>
-
-    <card-container
-            cardTitle="Notre Équipe"
-            imageUrl="img/accord.png"
-            layout="top"
-            imageSize="30%"
-            transformStyle="translateY(0%)"
-            backgroundColor="#f0f0f0"
-            textColor="#333"
-            linkUrl="https://example.com"
-            active
-            icon="img/icon.png"
-            borderRadius="10px"
-            boxShadow="0 8px 16px rgba(0, 0, 0, 0.2)"
-            imagePosition="top">
-
-        <card-component
-                name="Jean Dupont"
-                role="CEO"
-                description="Jean est le fondateur et CEO d'Informatik'Mans. Avec plus de 20 ans d'expérience dans l'industrie, il guide l'entreprise vers de nouveaux horizons."
-                image="img/jean.jpg">
-        </card-component>
-
-        <card-component
-                name="Marie Curie"
-                role="CTO"
-                description="Marie, notre CTO, est une experte en développement logiciel et en ingénierie. Elle supervise tous les aspects techniques de nos projets."
-                image="img/marie.jpg">
-        </card-component>
-
-        <card-component
-                name="Albert Einstein"
-                role="Lead Developer"
-                description="Albert est notre développeur principal. Son expertise en intelligence artificielle et en machine learning est inestimable pour nos projets."
-                image="img/albert.jpg">
-        </card-component>
-
-    </card-container>
-    <h2>Nos Valeurs</h2>
-    <ul>
-        <li><strong>Innovation:</strong> Nous nous efforçons de rester à la pointe des dernières technologies pour offrir les meilleures solutions.</li>
-        <li><strong>Qualité:</strong> Nous garantissons des produits et services de haute qualité pour satisfaire nos clients.</li>
-        <li><strong>Intégrité:</strong> Nous opérons avec honnêteté et transparence dans toutes nos actions.</li>
-        <li><strong>Client d'abord:</strong> Nous plaçons les besoins de nos clients au centre de toutes nos décisions.</li>
-    </ul>
-</section>
-
-<footer-component></footer-component>
-
+    <section class="timeline">
+        <h1 class="timeline-title">Notre parcours</h1>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">
+                    <div class="timeline-icon">
+                        <img src="img/prototype.png" alt="Icone création">
+                    </div>
+                    <p>21 Nov.</p>
+                    <p>2022</p>
+                </div>
+                <div class="timeline-content">
+                    <h2>Création de l'association & Réalisation des réseaux sociaux</h2>
+                    <p>Notre association a été créée par des bénévoles passionnés qui ont souhaité s'impliquer dans la communauté locale en proposant des initiatives solidaires et responsables. Tout au long de la création de l'association, nos bénévoles ont été très impliqués dans les différentes étapes du processus, depuis la conception des idées jusqu'à la mise en place concrète des projets.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">
+                    <div class="timeline-icon">
+                        <img src="img/poignee-de-main.png" alt="Icone partenariat">
+                    </div>
+                    <p>2 Mois</p>
+                    <p>2023</p>
+                </div>
+                <div class="timeline-content">
+                    <h2>Création d'un partenariat avec une entreprise</h2>
+                    <p>Nous sommes ravis de vous présenter notre partenariat avec l'entreprise Express Transport Anjou. En travaillant ensemble, nous avons pu développer une relation solide et efficace pour répondre aux besoins de nos membres. Nous sommes convaincus que notre partenariat continuera à croître et à apporter de la valeur ajoutée à nos membres.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">
+                    <div class="timeline-icon">
+                        <img src="img/stage.png" alt="Icone développement">
+                    </div>
+                    <p>11 Jan</p>
+                    <p>2023</p>
+                </div>
+                <div class="timeline-content">
+                    <h2>Développement application WEB - Le Mans Innovation (LMI)</h2>
+                    <p>Il s'agit de la réalisation d'un stage en entreprise pour deux de nos bénévoles afin de découvrir le fonctionnement de l'entreprise et ainsi acquérir de nouvelles compétences.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">
+                    <div class="timeline-icon">
+                        <img src="img/sensible.png" alt="Icone site web">
+                    </div>
+                    <p>14 Fév.</p>
+                    <p>2023</p>
+                </div>
+                <div class="timeline-content">
+                    <h2>Réalisation du site de l'association et hébergement par nos bénévoles</h2>
+                    <p>Les bénévoles de notre association ont joué un rôle clé dans la création et la réalisation de notre site web. Ils ont investi leur temps et leurs compétences pour concevoir et développer un site qui répond à nos besoins et à ceux de notre communauté. Grâce à leur expertise en matière de design, de développement web et de marketing digital, nous avons pu créer un site esthétique, intuitif et facilement accessible pour nos membres et nos partenaires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer-component role="contentinfo"></footer-component>
 </body>
+
 </html>
+
 
 <style>
     @import 'variables.css';
 
-    body {
-        font-family: 'Roboto', sans-serif;
-        line-height: 1.6;
+    body, html {
         margin: 0;
         padding: 0;
-        background: var(--secondary-color);
-        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
     }
 
-    header-component, footer-component {
+    header-component {
         display: block;
+        height: 60px; /* Hauteur fixe */
         width: 100%;
-    }
-
-    section#about {
-        padding: 2rem;
-        background: #fff;
-        margin: 2rem auto;
-        max-width: 1200px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    section#about h1, section#about h2 {
-        text-align: center;
-        color: var(--primary-color);
-    }
-
-    section#about p, section#about ul {
-        text-align: justify;
-        margin: 1rem 0;
-    }
-
-    section#about ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    section#about ul li {
-        margin: 0.5rem 0;
-        padding-left: 1.5rem;
-        position: relative;
-    }
-
-    section#about ul li:before {
-        content: "•";
-        color: var(--color-button);
-        position: absolute;
+        position: fixed; /* Fixé en haut de la page */
+        top: 0;
         left: 0;
+        z-index: 1000; /* S'assurer qu'il est au-dessus des autres contenus */
     }
 
-    card-container {
+    /* Reste de vos styles */
+    .composant, .composant-2 {
         display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    card-container .card {
-        display: flex;
-        flex-direction: column;
-        background: var(--secondary-color);
-        color: var(--text-color);
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden;
-    }
-
-    card-container .card.active {
-        border: 2px solid var(--color-button-hover);
-    }
-
-    card-container .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    card-container .card-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 1rem;
-    }
-
-    card-container .card-content.horizontal {
-        flex-direction: row;
-    }
-
-    card-container .card-content.vertical {
-        flex-direction: column;
-    }
-
-    card-container .card-composant {
-        display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 1rem;
     }
 
-    card-container .card-img {
-        object-fit: cover;
-        width: 100%;
-        max-width: 200px;
+    .composant {
+        padding: 2rem 0;
+    }
+
+    .composant-flex {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        background-color: var(--secondary-color);
+        padding: 2rem 0;
+        flex-wrap: wrap; /* Ajouté pour permettre le wrap sur les écrans plus petits */
+    }
+
+    .section-container {
+        transform: translateY(-20%);
+    }
+
+    .composant-2 {
+        flex-direction: column;
+        padding: 2rem 0;
+        margin-top: -10rem;
+    }
+
+    .composant-2 h1 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+
+    .icon-item img {
+        width: 75px;
         height: auto;
-        border-radius: 50%;
-        margin-bottom: 1rem;
     }
 
-    card-container .card-icon {
+    .image, .image-composant2 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .image-wrapper, .image-wrapper2 {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-wrapper {
+        height: 70vh;
+    }
+
+
+    .article-overlay, .article-overlay2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgba(39, 65, 91, 0.55);
+        align-items: center;
+    }
+
+    .article-content {
+        color: white;
+        text-align: center;
+        max-width: 60%;
+    }
+
+    .article-content h1,
+    .article-content h3,
+    .article-content {
+        margin-bottom: 3rem; /* Ajustez selon les besoins */
+    }
+
+    p {
+        color: #27415B;
+    }
+
+    .highlight {
+        color: var(--color-button);
+    }
+
+    .composant-2-2 {
+        max-width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .divAbout {
+        width: 40%;
+        padding: 2rem;
+        text-align: left;
+    }
+
+    .timeline {
+        position: relative;
+        margin: 50px 0;
+        padding: 40px 0;
+    }
+
+    .timeline-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+    }
+
+    .timeline-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin: 20px 0;
+        padding-left: 50px;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 20px;
+        bottom: 0;
+        width: 10px;
+        background: var(--primary-color);
+    }
+
+    .timeline-item .timeline-date {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3rem;
+        text-align: center;
+        color: white;
+        background: var(--secondary-color);
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-item .timeline-date p {
+        margin: 0;
+    }
+
+    .timeline-item .timeline-icon {
+        position: relative;
         width: 40px;
         height: 40px;
-        margin-top: 10px;
+        background: white;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
     }
 
-    card-container button {
-        padding: 0.8em;
-        margin-top: 1em;
-        border: none;
-        border-radius: 1rem;
-        background-color: var(--button-color);
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+    .timeline-item .timeline-icon img {
+        max-width: 60%;
     }
 
-    card-container button:hover {
-        background-color: var(--button-hover-color);
+    .timeline-content {
+        padding: 10px 20px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-content h2 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+
+    .timeline-content p {
+        margin: 10px 0 0;
+        color: #333;
+    }
+
+    /* Media queries pour les petits écrans */
+    @media (max-width: 1200px) {
+        .composant-card, .composant-2-2 {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .composant-2-2 {
+            text-align: center;
+        }
+
+        .divAbout {
+            width: 80%;
+            padding: 1rem;
+        }
     }
 
     @media (max-width: 768px) {
-        card-container {
+        main {
+            flex: 1;
+            padding-top: 70px; /* Correspond à la hauteur du header-component */
+        }
+
+        .composant, .composant-card, .composant-2, .composant-flex {
+            flex-direction: column;
+            padding: 1rem 0;
+        }
+
+        .composant-2-2 {
+            padding: 1rem;
+        }
+
+        .divAbout {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .icon-item img {
+            width: 60px;
+        }
+
+        .article-overlay, .article-overlay2 {
+            padding: 1rem;
             flex-direction: column;
         }
 
-        card-container .card-content.horizontal {
-            flex-direction: column;
+        .article-content {
+            max-width: 100%;
+            padding: 1rem;
         }
 
-        card-container .card-img {
-            width: 100%;
-            height: auto;
+        .timeline-container {
+            padding-left: 20px;
         }
 
-        card-container .card {
-            width: 100%;
-            transform: translateY(0%);
+        .timeline-item {
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            left: 10px;
+            width: 5px;
+        }
+
+        .timeline-item .timeline-date {
+            width: 30px;
+            left: -20px;
+        }
+
+        .timeline-item .timeline-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .timeline-item .timeline-icon img {
+            max-width: 50%;
         }
     }
 
     @media (max-width: 480px) {
-        card-container .card {
+        main {
+            flex: 1;
+            padding-top: 70px; /* Correspond à la hauteur du header-component */
+        }
+
+        .image-composant {
+            width: 100%;
+        }
+
+        .section-container {
             transform: translateY(0%);
         }
+
+        .composant-2-2 {
+            flex-direction: column;
+            margin-top: 5rem;
+        }
+
+        .icon-item img {
+            width: 50px;
+        }
+
+        .icon-item h2 {
+            font-size: 1.5rem;
+        }
+
+        .icon-item h4 {
+            font-size: 1rem;
+        }
+
+        .composant h1 {
+            font-size: 1.5rem;
+        }
+
+        .divAbout {
+            padding: 0.5rem;
+        }
+
+        .timeline-item {
+            padding-left: 30px;
+        }
+
+        .timeline-item .timeline-date {
+            width: 25px;
+            left: -25px;
+        }
+
+        .timeline-item .timeline-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        .timeline-item .timeline-icon img {
+            max-width: 40%;
+        }
     }
+
 </style>

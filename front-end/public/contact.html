@@ -11,17 +11,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <title>Informatik'Mans</title>
 </head>
-
 <body>
 <header-component></header-component>
-<main>
-    <card-container transformStyle="translateY(5%)" cardTitle="Contactez-nous" imageUrl="./img/contact-us.png" layout="left">
+<main role="main">
+    <card-container cardTitle="Contactez-nous" imageUrl="./img/contact-us.png" layout="left">
         <div class='contact-form'>
-            <label for='name'>Nom</label>
+            <p>Nom</p>
             <input type='text' name='name' placeholder='Votre nom' required>
-            <label for='email'>Email</label>
+            <p>Email</p>
             <input type='email' name='email' placeholder='Votre email' required>
-            <label for='message'>Message</label>
+            <p>Message</p>
             <textarea name='message' placeholder='Votre message' required></textarea>
             <button>Envoyer</button>
         </div>
@@ -31,43 +30,57 @@
 </body>
 </html>
 
-
 <style>
     @import 'variables.css';
 
-    html, body {
+    body, html {
         margin: 0;
         padding: 0;
-        height: 100%;
-        overflow-x: hidden; /* Empêche le défilement horizontal */
+        font-family: Arial, sans-serif;
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
     }
 
-    main {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden; /* Empêche tout débordement */
+    header-component {
+        display: block;
+        height: 60px; /* Hauteur fixe */
+        width: 100%;
+        position: fixed; /* Fixé en haut de la page */
+        top: 0;
+        left: 0;
+        z-index: 1000; /* S'assurer qu'il est au-dessus des autres contenus */
     }
+
+
+    card-container {
+        margin: auto;
+    }
+
 
     /* Styles pour les grands écrans */
     @media (min-width: 768px) {
         main {
-            padding: 40px;
+            flex: 1;
+            padding-top: 7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         card-container {
-            width: 80%;
-            max-width: 1200px;
+            margin: auto;
         }
     }
 
     /* Styles pour les écrans moyens */
     @media (min-width: 480px) and (max-width: 767px) {
         main {
-            padding: 30px;
+            flex: 1;
+            padding-top: 70px; /* Correspond à la hauteur du header-component */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         card-container {
@@ -86,6 +99,11 @@
         margin: auto;
     }
 
+    .contact-form label {
+        font-size: 1rem;
+        margin-bottom: 0.5em;
+    }
+
     .contact-form input,
     .contact-form textarea {
         padding: 0.8em;
@@ -99,7 +117,7 @@
     .contact-form textarea {
         resize: vertical;
         min-height: 150px;
-        max-height: 300px; /* Set a max height */
+        max-height: 300px; /* Définir une hauteur maximale */
     }
 
     .contact-form input:focus,
@@ -109,33 +127,24 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
 
-    button {
-        padding: 0.8em;
-        margin-top: 1em;
-        border: none;
-        border-radius: 1rem;
-        background-color: var(--color-button);
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: var(--color-button-hover);
-    }
-
-
-
     /* Styles pour les petits écrans */
     @media (max-width: 479px) {
         main {
-            padding: 20px;
+            flex: 1;
+            padding-top: 70px; /* Correspond à la hauteur du header-component */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         card-container {
-            width: 100%;
-            max-width: 400px;
+            padding: 2rem; /* Ajustez cette valeur selon vos besoins */
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        button {
+            font-size: 1rem;
         }
     }
 
