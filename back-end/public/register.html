@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        :root {
+            --primary-color: #27415B;
+            --text-color: #fff;
+            --secondary-color: #E9E9E9;
+            --third-color: #F4F4F4;
+            --secondary-color-dark: #1C1C1C;
+            --transition-duration: 0.3s;
+            --border-radius: 1rem;
+            --font-family: 'Dejavu Sans', sans-serif;
+            --color-button: #D19E3F;
+            --color-button-hover: #E0B95D;
+            --h1-font-size: 2.5rem;
+            --h2-font-size: 2rem;
+            --h3-font-size: 1.5rem;
+            --color-vert: #0E6333;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: var(--h1-font-size);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background-color: var(--third-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color-dark);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--secondary-color-dark);
+            border-radius: var(--border-radius);
+            transition: border-color var(--transition-duration);
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: var(--color-vert);
+            outline: none;
+        }
+
+        button {
+            background-color: var(--color-button);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-duration);
+        }
+
+        button:hover {
+            background-color: var (--color-button-hover);
+        }
+    </style>
+</head>
+<body>
+<form id="registerForm" action="/users/register" method="POST">
+    <h1>Register</h1>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/check-auth', {
+            credentials: 'include'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data.authenticated) {
+                    alert('Vous devez être connecté pour accéder à cette page.');
+                    window.location.href = '/login'; // Rediriger vers la page de connexion
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+    });
+</script>
+</body>
+</html>
