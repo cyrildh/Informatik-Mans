@@ -3,18 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <script src="components/footer-component.js" defer></script>
-    <script src="components/header-component.js" defer></script>
-    <script src="components/card-component.js" defer></script>
-    <script src="components/card-container.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <script src="../components/FooterComponent.js" defer></script>
+    <script src="../components/HeaderComponent.js" defer></script>
+    <script src="../components/CardComponent.js" defer></script>
+    <script src="../components/cardContainer.js" defer></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo.png" />
     <title>Informatik'Mans</title>
 </head>
 <body>
 <header-component></header-component>
 <main role="main">
-    <card-container cardTitle="Contactez-nous" imageUrl="./img/contact-us.png" layout="left">
+    <card-container cardTitle="Contactez-nous" imageUrl="../assets/img/contact-us.png" layout="left">
         <div class='contact-form'>
             <p>Nom</p>
             <input type='text' name='name' placeholder='Votre nom' required>
@@ -31,7 +31,7 @@
 </html>
 
 <style>
-    @import 'variables.css';
+    @import '../styles/variables.css';
 
     body, html {
         margin: 0;

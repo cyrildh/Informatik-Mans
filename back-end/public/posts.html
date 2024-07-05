@@ -296,7 +296,7 @@
                     loadPosts();
                 } else {
                     alert('Vous devez être connecté pour gérer les articles.');
-                    window.location.href = '/login'; // Rediriger vers la page de connexion
+                    window.location.href = 'users/login'; // Rediriger vers la page de connexion
                 }
             })
             .catch(error => console.error('Erreur:', error));
@@ -315,7 +315,7 @@
                 formData.append('image', image);
             }
 
-            fetch('/api/posts', {
+            fetch('/articles/posts', {
                 method: 'POST',
                 credentials: 'include',
                 body: formData
@@ -339,7 +339,7 @@
         });
 
         function loadPosts() {
-            fetch('/api/posts')
+            fetch('/articles/posts')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok ' + response.statusText);
@@ -383,7 +383,7 @@
         }
 
         window.editPost = function(postId) {
-            fetch(`/api/posts/${postId}`)
+            fetch(`/articles/posts/${postId}`)
                 .then(response => response.json())
                 .then(post => {
                     document.getElementById('edit-id').value = post._id;
@@ -413,7 +413,7 @@
                 formData.append('image', image);
             }
 
-            fetch(`/api/posts/${id}`, {
+            fetch(`/articles/posts/${id}`, {
                 method: 'PUT',
                 credentials: 'include',
                 body: formData
@@ -438,7 +438,7 @@
 
         window.deletePost = function(postId) {
             if (confirm('Êtes-vous sûr de vouloir supprimer ce post?')) {
-                fetch(`/api/posts/${postId}`, {
+                fetch(`/articles/posts/${postId}`, {
                     method: 'DELETE',
                     credentials: 'include'
                 })

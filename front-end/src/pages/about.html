@@ -8,12 +8,12 @@
     <meta name="keywords" content="informatique, aide, association, technologie">
     <meta name="author" content="Informatik'Mans">
     <title>À Propos</title>
-    <script src="components/footer-component.js" async></script>
-    <script src="components/header-component.js" async></script>
-    <script src="components/card-component.js" async></script>
-    <script src="components/card-container.js" async></script>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-    <link rel="stylesheet" href="style.css">
+    <script src="../components/FooterComponent.js" async></script>
+    <script src="../components/HeaderComponent.js" async></script>
+    <script src="../components/CardComponent.js" async></script>
+    <script src="../components/cardContainer.js" async></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 <main role="main">
     <section class="composant">
         <div class="image-wrapper">
-            <img src="img/DALL·E-2024-07-02-13.50.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
+            <img src="../assets/img/DALL·E-2024-07-02-13.50.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
             <article class="article-overlay">
                 <div class="article-content">
                     <h1>À <span class="highlight">Propos</span></h1>
@@ -31,7 +31,7 @@
         </div>
     </section>
     <section class="section-container">
-        <card-container imageSize="30%" transformStyle="translateY(0%)" cardTitle="L'équipe" imageUrl="img/accord.png" layout="top" active>
+        <card-container imageSize="30%" transformStyle="translateY(0%)" cardTitle="L'équipe" imageUrl="../assets/img/accord.png" layout="top" active>
             <div class="composant-flex">
                 <div class="composant">
                     <card-component cardTitle="Caty BARBERINI" cardDescription="Chargée de développement web Trouve satisfaction à aider les autres dans une ambiance joyeuse et conviviale. Caty.barberini@informatikmans.org" imageUrl="img/express.png" backgroundColor="var(--third-color)" transformStyle="translateY(0)" borderColor="var(--color-vert)" borderWidth="2px" textColor="var(--primary-vert)"></card-component>
@@ -48,7 +48,7 @@
     <section class="composant-2">
         <h1 class="h1">Notre histoire</h1>
         <div class="composant-2-2">
-            <img src="img/rapport.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
+            <img src="../assets/img/rapport.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
             <div class="divAbout">
                 <p>Notre association a été créée en 2023 par un groupe de passionnés d'informatique. Nous avons tous une expérience significative dans le domaine de l'informatique et nous sommes convaincus que la technologie peut être un outil puissant pour améliorer la vie des gens.</p>
                 <button href="about.html" class="btn">En savoir plus</button>
@@ -62,7 +62,7 @@
             <div class="timeline-item">
                 <div class="timeline-date">
                     <div class="timeline-icon">
-                        <img src="img/prototype.png" alt="Icone création">
+                        <img src="../assets/img/prototype.png" alt="Icone création">
                     </div>
                     <p>21 Nov.</p>
                     <p>2022</p>
@@ -75,7 +75,7 @@
             <div class="timeline-item">
                 <div class="timeline-date">
                     <div class="timeline-icon">
-                        <img src="img/poignee-de-main.png" alt="Icone partenariat">
+                        <img src="../assets/img/poignee-de-main.png" alt="Icone partenariat">
                     </div>
                     <p>2 Mois</p>
                     <p>2023</p>
@@ -88,7 +88,7 @@
             <div class="timeline-item">
                 <div class="timeline-date">
                     <div class="timeline-icon">
-                        <img src="img/stage.png" alt="Icone développement">
+                        <img src="../assets/img/stage.png" alt="Icone développement">
                     </div>
                     <p>11 Jan</p>
                     <p>2023</p>
@@ -101,7 +101,7 @@
             <div class="timeline-item">
                 <div class="timeline-date">
                     <div class="timeline-icon">
-                        <img src="img/sensible.png" alt="Icone site web">
+                        <img src="../assets/img/sensible.png" alt="Icone site web">
                     </div>
                     <p>14 Fév.</p>
                     <p>2023</p>
@@ -121,7 +121,7 @@
 
 
 <style>
-    @import 'variables.css';
+    @import '../styles/variables.css';
 
     body, html {
         margin: 0;

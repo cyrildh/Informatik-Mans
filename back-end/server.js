@@ -6,9 +6,9 @@ const cors = require('cors');
 const multer = require('multer');
 require('dotenv').config();
 
-const articleRoutes = require('./routes/articles'); // Assurez-vous que le chemin est correct
-const userRoutes = require('./routes/users'); // Assurez-vous que le chemin est correct
-const checkAuthRoutes = require('./routes/checkAuth'); // Assurez-vous que le chemin est correct
+const articleRoutes = require('./routes/articleRoutes'); // Assurez-vous que le chemin est correct
+const userRoutes = require('./routes/userRoutes'); // Assurez-vous que le chemin est correct
+const checkAuthRoutes = require('./middlewares/authMiddleware'); // Assurez-vous que le chemin est correct
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // CORS configuration
-const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://127.0.0.1:3001']; // Ajoutez les URLs de votre frontend ici
+const allowedOrigins = ['http://127.0.0.1:3000','http://127.0.0.1:3001']; // Ajoutez les URLs de votre frontend ici
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
@@ -56,8 +56,8 @@ app.post('/upload', upload.single('image'), (req, res) => {
     }
 });
 
-// Use the article routes for the API, mounted at /api
-app.use('/api', articleRoutes);
+// Use the article routes for the API, mounted at /articles
+app.use('/articles', articleRoutes);
 
 // Use the user routes for the API, mounted at /users
 app.use('/users', userRoutes);
@@ -83,7 +83,7 @@ app.get('/posts', (req, res) => {
 
 // Serve the login page at the root
 app.get('/', (req, res) => {
-    res.redirect('users/login'); // Adjust the path to your login page as needed
+    res.redirect('/users/login'); // Adjust the path to your login page as needed
 });
 
 // Start the server

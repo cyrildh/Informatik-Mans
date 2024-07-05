@@ -7,19 +7,19 @@
     <meta name="keywords" content="informatique, aide, association, technologie">
     <meta name="author" content="Informatik'Mans">
     <title>Informatik'Mans</title>
-    <script src="components/footer-component.js" async></script>
-    <script src="components/header-component.js" async></script>
-    <script src="components/card-component.js" async></script>
-    <script src="components/card-container.js" async></script>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-    <link rel="stylesheet" href="style.css">
+    <script src="../components/FooterComponent.js" async></script>
+    <script src="../components/HeaderComponent.js" async></script>
+    <script src="../components/CardComponent.js" async></script>
+    <script src="../components/cardContainer.js" async></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 <header-component role="banner"></header-component>
 <main role="main">
     <section class="composant">
         <div class="image-wrapper">
-            <img src="img/DALL·E-2024-05-15-14.46.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
+            <img src="../assets/img/DALL·E-2024-05-15-14.46.png" alt="Image de présentation de l'association Informatik'Mans" class="image">
             <article class="article-overlay">
                 <div class="article-content">
                     <h1>Informatik<span class="highlight">'Mans</span></h1>
@@ -32,7 +32,7 @@
         <div class="composant-card">
             <card-component cardTitle="Aide aux particuliers"
                             cardDescription="L'informatique est devenue une part importante de notre quotidien, mais heureusement, de nombreux services d'aide aux particuliers sont disponibles pour offrir une assistance personnalisée."
-                            imageUrl="img/aidez-moi.png"
+                            imageUrl="../assets/img/aidez-moi.png"
                             backgroundColor="var(--primary-color)"
                             transformStyle="translateY(0%)"
                             isClickable="true"
@@ -40,7 +40,7 @@
             </card-component>
             <card-component cardTitle="Un service gratuit"
                             cardDescription="Les services d'aide informatique personnalisée permettent une inclusion technologique à tous les âges. Il est possible de bénéficier de ces services d'aide informatique personnalisée gratuitement."
-                            imageUrl="img/livraison-gratuite.png"
+                            imageUrl="../assets/img/livraison-gratuite.png"
                             backgroundColor="var(--primary-color)"
                             transformStyle="translateY(0%)"
                             isClickable="true"
@@ -48,7 +48,7 @@
             </card-component>
             <card-component cardTitle="Apprentissage"
                             cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
-                            imageUrl="img/education.png"
+                            imageUrl="../assets/img/education.png"
                             backgroundColor="var(--primary-color)"
                             transformStyle="translateY(0%)"
                             isClickable="true"
@@ -58,7 +58,7 @@
         <div class="composant-2">
             <h1 class="h1">Qui sommes-nous ?</h1>
             <div class="composant-2-2">
-                <img src="img/appel-video.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
+                <img src="../assets/img/appel-video.png" alt="Image des membres de l'association Informatik'Mans" class="image-composant">
                 <div class="divAbout">
                     <p>Notre association a été créée en 2023 par un groupe de passionnés d'informatique. Nous avons tous une expérience significative dans le domaine de l'informatique et nous sommes convaincus que la technologie peut être un outil puissant pour améliorer la vie des gens.</p>
                     <button id="btn-about" class="btn-primary">En savoir plus</button>
@@ -67,26 +67,26 @@
         </div>
     <section>
         <div class="image-wrapper2">
-            <img src="img/DALLE-2024-04-19-14.21.png" alt="Image de présentation des statistiques de l'association" class="image-composant2">
+            <img src="../assets/img/DALLE-2024-04-19-14.21.png" alt="Image de présentation des statistiques de l'association" class="image-composant2">
             <article class="article-overlay2">
                 <div class="icon-container">
                     <div class="icon-item">
-                        <img src="img/accord.png" alt="Icône des partenaires">
+                        <img src="../assets/img/accord.png" alt="Icône des partenaires">
                         <h2>3</h2>
                         <h4>Partenaires</h4>
                     </div>
                     <div class="icon-item">
-                        <img src="img/travail-en-equipe.png" alt="Icône de l'équipe">
+                        <img src="../assets/img/travail-en-equipe.png" alt="Icône de l'équipe">
                         <h2>4</h2>
                         <h4>Personnes dans l'équipe</h4>
                     </div>
                     <div class="icon-item">
-                        <img src="img/humanitaire.png" alt="Icône des personnes aidées">
+                        <img src="../assets/img/humanitaire.png" alt="Icône des personnes aidées">
                         <h2>20+</h2>
                         <h4>Personnes aidées</h4>
                     </div>
                     <div class="icon-item">
-                        <img src="img/calendrier.png" alt="Icône des années d'expérience">
+                        <img src="../assets/img/calendrier.png" alt="Icône des années d'expérience">
                         <h2>2+</h2>
                         <h4>D'années d'expérience</h4>
                     </div>
@@ -98,14 +98,14 @@
         <card-container imageSize="30%"
                         transformStyle="translateY(0%)"
                         cardTitle="Partenaires"
-                        imageUrl="img/accord.png"
+                        imageUrl="../assets/img/accord.png"
                         layout="top"
                         active>
             <div class="composant-flex">
                 <div class="composant">
                     <card-component cardTitle="Express Transport Anjou"
                                     cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
-                                    imageUrl="img/express.png"
+                                    imageUrl="../assets/img/express.png"
                                     backgroundColor="var(--third-color)"
                                     transformStyle="translateY(0)"
                                     borderColor="var(--color-vert)"
@@ -115,7 +115,7 @@
                 <div class="composant">
                     <card-component cardTitle="Microsoft"
                                     cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
-                                    imageUrl="img/Microsoft.png"
+                                    imageUrl="../assets/img/Microsoft.png"
                                     backgroundColor="var(--third-color)"
                                     transformStyle="translateY(0)"
                                     borderColor="var(--color-vert)"
@@ -125,7 +125,7 @@
                 <div class="composant">
                     <card-component cardTitle="Le Mans Métropole"
                                     cardDescription="Que ce soit pour résoudre des problèmes techniques ou pour apprendre à utiliser de nouveaux logiciels, ces services peuvent aider les personnes à se sentir plus à l'aise avec la technologie et à tirer le meilleur parti de leur équipement informatique."
-                                    imageUrl="img/le-mans.jpg"
+                                    imageUrl="../assets/img/le-mans.jpg"
                                     backgroundColor="var(--third-color)"
                                     transformStyle="translateY(0)"
                                     borderColor="var(--color-vert)"
@@ -151,7 +151,7 @@
 </script>
 
 <style>
-    @import 'variables.css';
+    @import '../styles/variables.css';
 
     body, html {
         margin: 0;

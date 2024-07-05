@@ -77,7 +77,7 @@ class CardComponent extends HTMLElement {
                 </div>
             </a>
             <style>
-                @import '../variables.css';
+                @import '../styles/variables.css';
                
                 .card {
                     border-radius: 1rem;

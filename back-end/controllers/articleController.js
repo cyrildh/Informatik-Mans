@@ -1,11 +1,7 @@
-const express = require('express');
-const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { authenticateJWT } = require('../utils/token'); // Ensure the path is correct
-const Article = require('../models/Article'); // Ensure the path is correct
-
-const router = express.Router();
+const multer = require('multer');
+const Article = require('../models/Article');
 
 // Image Upload Configuration
 const storage = multer.diskStorage({
@@ -18,8 +14,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Add New Post Route
-router.post('/posts', authenticateJWT, upload.single('image'), async (req, res) => {
+exports.upload = upload;
+
+// Add New Post Handler
+exports.addPost = async (req, res) => {
     const { title, content } = req.body;
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
 
@@ -35,10 +33,10 @@ router.post('/posts', authenticateJWT, upload.single('image'), async (req, res) 
         console.error('Error adding post:', err);
         res.status(500).json({ error: 'Unable to save post' });
     }
-});
+};
 
-// Get All Posts Route
-router.get('/posts', async (req, res) => {
+// Get All Posts Handler
+exports.getAllPosts = async (req, res) => {
     try {
         const posts = await Article.find();
         res.json(posts);
@@ -46,10 +44,10 @@ router.get('/posts', async (req, res) => {
         console.error('Error fetching posts:', err);
         res.status(500).json({ error: 'Unable to fetch posts' });
     }
-});
+};
 
-// Get Post by ID Route
-router.get('/posts/:id', async (req, res) => {
+// Get Post by ID Handler
+exports.getPostById = async (req, res) => {
     try {
         const post = await Article.findById(req.params.id);
         if (post) {
@@ -61,10 +59,10 @@ router.get('/posts/:id', async (req, res) => {
         console.error('Error fetching post:', err);
         res.status(500).json({ error: 'Unable to fetch post' });
     }
-});
+};
 
-// Update Post Route
-router.put('/posts/:id', authenticateJWT, upload.single('image'), async (req, res) => {
+// Update Post Handler
+exports.updatePost = async (req, res) => {
     const { title, content } = req.body;
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : req.body.imageUrl;
 
@@ -88,10 +86,10 @@ router.put('/posts/:id', authenticateJWT, upload.single('image'), async (req, re
         console.error('Error updating post:', err);
         res.status(500).json({ error: 'Unable to update post' });
     }
-});
+};
 
-// Delete Post Route
-router.delete('/posts/:id', authenticateJWT, async (req, res) => {
+// Delete Post Handler
+exports.deletePost = async (req, res) => {
     try {
         const post = await Article.findById(req.params.id);
         if (!post) {
@@ -116,5 +114,4 @@ router.delete('/posts/:id', authenticateJWT, async (req, res) => {
         console.error('Error deleting post:', err);
         res.status(500).json({ error: 'Unable to delete post' });
     }
-});
-module.exports = router;
+};

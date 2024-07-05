@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set up static file serving
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 app.use('/uploads', express.static('uploads'));
 
 const storage = multer.diskStorage({
@@ -58,7 +58,20 @@ client.connect()
         process.exit(1);
     });
 
-// Start the server
+app.get('/:page', (req, res) => {
+    const page = req.params.page;
+    const filePath = path.join(__dirname, 'src/pages', `${page}.html`);
+    res.sendFile(filePath, err => {
+        if (err) {
+            res.status(404).send('Page not found');
+        }
+    });
+});
+
+app.get('/', (req, res) => {
+    res.redirect('index'); // Adjust the path to your login page as needed
+});
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });

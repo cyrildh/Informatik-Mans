@@ -11,15 +11,15 @@ class FooterComponent extends HTMLElement {
         </div>
         <div class="footer-section footer-links">
             <h3>Liens utiles</h3>
-            <div><a href="../politique.html">Politique de confidentialité</a></div>
-            <div><a href="../condition.html">Conditions d'utilisation</a></div>
+            <div><a href="../pages/politique.html">Politique de confidentialité</a></div>
+            <div><a href="../pages/condition.html">Conditions d'utilisation</a></div>
         </div>
         <div class="footer-section social-media-links">
             <h3>Suivez-nous</h3>
-            <a href="https://www.facebook.com/InformatikMans?locale=fr_FR"><img src="img/facebook.png" alt="Facebook"/></a>
-            <a href="https://x.com/InformatikMans?t=fthZt9gbCk01BTT4Aa_QAA&s=07"><img src="img/x.webp" alt="X"/></a>
-            <a href="https://www.instagram.com/informatikmans/"><img src="img/Instagram_icon.png" alt="Instagram"/></a>
-            <a href="https://www.linkedin.com/company/informatik-mans/about/"><img src="img/LinkedIn.png" alt="LinkedIn"/></a>
+            <a href="https://www.facebook.com/InformatikMans?locale=fr_FR"><img src="assets/img/facebook.png" alt="Facebook"/></a>
+            <a href="https://x.com/InformatikMans?t=fthZt9gbCk01BTT4Aa_QAA&s=07"><img src="assets/img/x.webp" alt="X"/></a>
+            <a href="https://www.instagram.com/informatikmans/"><img src="assets/img/Instagram_icon.png" alt="Instagram"/></a>
+            <a href="https://www.linkedin.com/company/informatik-mans/about/"><img src="assets/img/LinkedIn.png" alt="LinkedIn"/></a>
         </div>
     </div>
 </footer>

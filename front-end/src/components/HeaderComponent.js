@@ -4,7 +4,7 @@ class HeaderComponent extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
             <style>
-@import '../public/variables.css';
+@import '../styles/variables.css';
 
 :host {
     --header-height: 60px;
@@ -111,8 +111,8 @@ nav a:hover, nav a.active {
 
             </style>
             <div class="header-container">
-                <a href="index.html">
-                    <img src="img/logo.png" alt="Logo de Mon Site Web" class="logo" />
+                <a href="index">
+                    <img src="assets/img/logo.png" alt="Logo de Mon Site Web" class="logo" />
                 </a>
                 <div class="menu-toggle" aria-label="Menu Toggle" aria-expanded="false" aria-controls="navigation-menu">
                     <span></span>
@@ -120,11 +120,11 @@ nav a:hover, nav a.active {
                     <span></span>
                 </div>
                 <nav id="navigation-menu" role="navigation">
-                    <a href="index.html" aria-label="Accueil">Accueil</a>
-                    <a href="about.html" aria-label="À propos">À propos</a>
-                    <a href="services.html" aria-label="Services">Services</a>
-                    <a href="blog.html" aria-label="Blog">Blog</a>
-                    <a href="contact.html" aria-label="Contact">Contact</a>
+                    <a href="index" aria-label="Accueil">Accueil</a>
+                    <a href="about" aria-label="À propos">À propos</a>
+                    <a href="services" aria-label="Services">Services</a>
+                    <a href="blog" aria-label="Blog">Blog</a>
+                    <a href="contact" aria-label="Contact">Contact</a>
                 </nav>
             </div>
         `;
